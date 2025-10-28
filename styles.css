@@ -312,6 +312,34 @@ section {
   overflow: hidden; 
 }
 
+/*Interests Section*/
+.interests-container {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto; 
+}
+
+.interest-card {
+  border: 1px solid var(--border-color, #eee);
+  border-radius: 8px;
+  background-color: var(--secondary-color, #f8f9fa);
+  padding: 2rem 2.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interest-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.interest-card h3 {
+  margin-top: 0;
+  color: var(--primary-color, blue);
+}
+
 
 /*Form Styling*/
 fieldset {
@@ -348,7 +376,6 @@ legend {
 }
 
 .form-submit-btn {
-  /* Makes the button fill the form container */
   width: 100%; 
   display: inline-block;
   background-color: var(--primary-color, blue);
@@ -362,8 +389,6 @@ legend {
   font-family: var(--body-font, sans-serif);
   font-size: 1.6rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  
-  /* Adds space above the button */
   margin-top: 1rem; 
 }
 
@@ -398,67 +423,54 @@ footer a {
 
 @media (min-width: 768px) {
   html {
-    font-size: 70%; /* Increase base font size slightly */
+    font-size: 70%; 
   }
 
-  /* * REQUIREMENT: UI Change (Nav)
-   * On tablets, the nav becomes a horizontal row.
-   */
   header nav {
     flex-direction: row;
     justify-content: space-between;
     padding: 2rem 4rem;
   }
 
-  /* * REQUIREMENT: Layout Reflow (Grid)
-   * The project grid becomes 2 columns.
-   */
   #featured-projects > div > div,
   .project-gallery {
-    grid-template-columns: 1fr 1fr; /* 2 columns */
+    grid-template-columns: 1fr 1fr; 
   }
   
-  /* Make forms a bit wider on tablets */
   form {
     max-width: 700px;
   }
 
   .project-gallery {
-    grid-template-columns: 1fr 1fr; /* 2 columns */
+    grid-template-columns: 1fr 1fr;
   }
 
   .project-card-split {
-    flex-direction: row; /* Puts items side-by-side */
+    flex-direction: row;
   }
 
-  /* Give the image a specific width */
   .project-card-split .project-card-image {
-    flex-basis: 45%; /* Image container takes 45% of the card width */
-    flex-shrink: 0; /* Prevents the image from shrinking */
+    flex-basis: 45%;
+    flex-shrink: 0; 
   }
 
-  /* Give the content the remaining width */
   .project-card-split .project-card-content {
-    flex-basis: 55%; /* Content container takes 55% of the card width */
+    flex-basis: 55%;
     padding: 3rem;
   }
 
-  /* Make the image fill the full height of the card */
   .project-card-split .project-card-image img {
     height: 100%;
   }
 }
 
-/* * REQUIREMENT: Responsive Design (Desktop)
- * Min-width: 1024px
- */
 @media (min-width: 1024px) {
   html {
-    font-size: 62.5%; /* Reset to 1rem = 10px */
+    font-size: 62.5%; 
   }
 
   body {
-    font-size: 1.8rem; /* Increase default body text size */
+    font-size: 1.8rem; 
   }
 
   p {
@@ -466,7 +478,7 @@ footer a {
   }
 
   header nav {
-    padding: 1.5rem 4rem; /* More padding on desktop */
+    padding: 1.5rem 4rem;
   }
 
 
