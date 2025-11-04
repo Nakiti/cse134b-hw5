@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Experience - Nikhil Akiti</title>
         <link rel="stylesheet" href="styles.css">
     </head>
@@ -13,7 +14,7 @@
                     <li class="header-link"><a href="index.html">Home</a></li>
                     <li class="header-link"><a href="projects.html">Projects</a></li>
                     <li class="header-link"><a href="experiences.html">Experience</a></li>
-                    <li class="header-link"><a href="interests.html">Interests</a></li>
+                    <li class="header-link"><a href="about.html">About</a></li>
                 </ul>
             </nav>
         </header>
@@ -29,30 +30,30 @@
 
                 <experience-card class="experience-card">
                     <header class="experience-header">
-                        <h2 class="experience-role">Role</h2>
-                        <h3 class="experience-company">Company</h3>
-                        <p class="experience-date"><i>Date</i></p>
+                        <h2 class="experience-role">Software Engineering Intern</h2>
+                        <h3 class="experience-company">UCSD IT Serivces</h3>
+                        <p class="experience-date"><i>May 2025 - Present</i></p>
                     </header>
                     <div class="experience-details">
                         <ul>
-                            <li>One</li>
-                            <li>Two</li>
-                            <li>Three</li>
+                            <li>Engineered a major version upgrade of a custom JupyterHub platform, orchestrating the deployment on Kubernetes using Helm/Helmfile and Docker, enhancing security for 1000+ UCSD students by patching legacy CVEs</li>
+                            <li>Resolved migration failures during JupyterHub upgrade, including function conflicts and a refactor of the legacy Python Jinja2/Bootstrap front-end templates, ensuring 100% feature compatibility and UI consistency.</li>
+                            <li>Automated Python SonarQube integration into Bamboo CI/CD pipeline using custom Bash scripts for environment setup, SSL trust configuration, and dependency management; authored clear internal documentation to support maintainability</li>
                         </ul>
                     </div>
                 </experience-card>
 
                 <experience-card class="experience-card">
                     <header class="experience-header">
-                        <h2 class="experience-role">Role</h2>
-                        <h3 class="experience-company">Company</h3>
-                        <p class="experience-date"><i>Date</i></p>
+                        <h2 class="experience-role">Undergraduate Research Assistant</h2>
+                        <h3 class="experience-company">UCSD CSE</h3>
+                        <p class="experience-date"><i>Sep 2023 - Jun 2024</i></p>
                     </header>
                     <div class="experience-details">
                         <ul>
-                            <li>One</li>
-                            <li>Two</li>
-                            <li>Three</li>
+                            <li>Co-authored the paper Generic Refinement Types, by implementing and debugging a modified Rust object-relational mapping library that added generic refinements to functions and types</li>
+                            <li>Built web apps using the Rocket.rs web framework, Diesel ORM, and PostgreSQL that implemented CRUD functionality, JSON data, and cookies that served as testbeds for the refinement type checker</li>
+                            <li>Migrated 3 web applications developed in Haskell to Rust and navigated differences in programming structures by rewriting monadic error handling to leverage Rust’s native Result and Option types for improved safety.</li>
                         </ul>
                     </div>
                 </experience-card>

@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Nikhil Akiti's Portfolio</title>
         <link rel="stylesheet" href="styles.css">
     </head>
@@ -14,7 +15,7 @@
                     <li class="header-link"><a href="index.html">Home</a></li>
                     <li class="header-link"><a href="projects.html">Projects</a></li>
                     <li class="header-link"><a href="experiences.html">Experience</a></li>
-                    <li class="header-link"><a href="interests.html">Interests</a></li>
+                    <li class="header-link"><a href="about.html">About</a></li>
                 </ul>
             </nav>
         </header>
@@ -40,43 +41,61 @@
                     </p>
                 </div>
             </section>
+            <section id="featured-experience">
+                <h2>What I'm Up To</h2>
+                <p>Currently, I work as a Software Engineering Intern for UCSD IT Services as part of the Academic Innovation team. I work on a diverse set of projects across the backend and devops spheres. In this role, I've become comfortable working with Docker, Kubernetes, and other devops tools to manage platforms and applications that support thousands of people. I've also worked on scripting tasks to improve CI/CD pipelines as well as refactoring python clients to central error handling and reduce code duplication. In this position, I work on an agile team and understand principles that allow for successful projects and teams.</p>
+            </section>
             <section id="featured-projects">
                 <h2>Featured Projects</h2>
                 <div class="project-card-container">
-
                     <a href="projects.html" class="project-card-link">
                         <article class="project-card">
-                            <picture class="project-card-image">
-                                <source media="(min-width: 650px)" srcset="https://placehold.co/800x400/">
-                                <img src="https://placehold.co/600x400/" alt="Screenshot of Project One">
-                            </picture>
+                            <img 
+                                class="project-card-image"
+                                src="assets/medium/fundraising-1.png" 
+                                srcset="assets/small/fundraising-1.png 400w, 
+                                        assets/medium/fundraising-1.png 800w,
+                                        assets/large/fundraising-1.png 1200w"
+                                sizes="(min-width: 768px) 33vw, 100vw"
+                                alt="Screenshot of Fundraising CRM"
+                            >
                             
-                            <div class="project-card-title-bar">
-                                <h3>Project Title</h3>
+                            <div class="project-card-title-bar" style="background-color: #BFDBFE">
+                                <h3>Non Profit CRM</h3>
                             </div>
                         </article>
                     </a>
                     <a href="projects.html" class="project-card-link">
                         <article class="project-card">
-                            <picture class="project-card-image">
-                                <source media="(min-width: 650px)" srcset="https://placehold.co/800x400/">
-                                <img src="https://placehold.co/600x400/" alt="Screenshot of Project One">
-                            </picture>
+                            <img 
+                                class="project-card-image"
+                                src="assets/medium/claimable-1.png" 
+                                srcset="assets/small/claimable-1.png 400w, 
+                                        assets/medium/claimable-1.png 800w,
+                                        assets/large/claimable-1.png 1200w"
+                                sizes="(min-width: 768px) 33vw, 100vw"
+                                alt="Screenshot of Claimable AI"
+                            >
                             
-                            <div class="project-card-title-bar">
-                                <h3>Project Title</h3>
+                            <div class="project-card-title-bar" style="background-color: #A7F3D0;">
+                                <h3>Claimable AI</h3>
                             </div>
                         </article>
                     </a>
                     <a href="projects.html" class="project-card-link">
                         <article class="project-card">
-                            <picture class="project-card-image">
-                                <source media="(min-width: 650px)" srcset="https://placehold.co/800x400/">
-                                <img src="https://placehold.co/600x400/" alt="Screenshot of Project One">
-                            </picture>
+                            <img 
+                                class="project-card-image"
+                                src="assets/medium/fulfill-1.png" 
+                                srcset="assets/small/fulfill-1.png 400w, 
+                                        assets/medium/fulfill-1.png 800w,
+                                        assets/large/fulfill-1.png 1200w"
+                                sizes="(min-width: 768px) 33vw, 100vw"
+                                alt="Screenshot of Fulfill AI"
+                            >
                             
-                            <div class="project-card-title-bar">
-                                <h3>Project Title</h3>
+                            <div class="project-card-title-bar" style="background-color: #FDE68A">
+                                <h3>Fulfill AI</h3>
                             </div>
                         </article>
                     </a>
