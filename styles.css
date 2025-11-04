@@ -16,6 +16,12 @@
   --accent-fallback: #00e68a;
 }
 
+@property --primary-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #007bff;
+}
+
 *::before,
 *::after {
   box-sizing: border-box;
