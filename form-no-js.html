@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Contact Us</title>
 </head>
 <body>
@@ -16,7 +17,6 @@
                 </p>
             </header>
             <form action="https://httpbin.org/post" method="POST">
-
                 <div>
                     <label for="name">Name</label>
                     <input 
@@ -25,7 +25,8 @@
                         name="user_name" 
                         required
                         autocomplete="name"
-                        placeholder="Jane Doe">
+                        placeholder="John Doe"
+                    >
                 </div>
 
                 <div>
@@ -36,7 +37,8 @@
                         name="user_email" 
                         required
                         autocomplete="email"
-                        placeholder="jane.doe@example.com">
+                        placeholder="name@example.com"
+                    >
                 </div>
 
                 <div>
@@ -45,7 +47,8 @@
                         type="text" 
                         id="subject" 
                         name="user_subject"
-                        placeholder="Inquiry about services">
+                        placeholder="Ask a question"
+                    >
                 </div>
 
                 <div>
@@ -55,7 +58,9 @@
                         name="user_comments" 
                         rows="4"
                         required
-                        placeholder="Your message here..."></textarea>
+                        placeholder="Your message here"
+                    >
+                    </textarea>
                 </div>
 
                 <input type="hidden" id="bot-check" name="possible_bot" value="true">
@@ -63,6 +68,9 @@
                 <button type="submit">
                     Send Message
                 </button>
+
+                <output id="error-output" for="name email subject comments" role="status"></output>
+                <output id="info-output" for="name email subject comments" role="status"></output>
 
             </form>
         </section>
