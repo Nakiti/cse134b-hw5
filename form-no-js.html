@@ -25,7 +25,9 @@
                         name="user_name" 
                         required
                         autocomplete="name"
+                        minlength="2"
                         placeholder="John Doe"
+                        pattern="[a-zA-Z\s'-]+"
                     >
                 </div>
 
@@ -48,6 +50,8 @@
                         id="subject" 
                         name="user_subject"
                         placeholder="Ask a question"
+                        maxlength="100"
+                        required
                     >
                 </div>
 
@@ -56,11 +60,9 @@
                     <textarea 
                         id="comments" 
                         name="user_comments" 
-                        rows="4"
-                        required
-                        placeholder="Your message here"
-                    >
-                    </textarea>
+                        rows="4" 
+                        placeholder="Your message here" 
+                        maxlength="500"></textarea>
                 </div>
 
                 <input type="hidden" id="bot-check" name="possible_bot" value="true">
