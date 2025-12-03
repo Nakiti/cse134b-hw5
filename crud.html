@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projects - Nikhil Akiti</title>
+        <link rel="stylesheet" href="styles.portfolio.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html" id="header-title">Nikhil Akiti</a>
+                <ul class="header-link-container">
+                    <li class="header-link"><a href="index.html">Home</a></li>
+                    <li class="header-link"><a href="projects.html">Projects</a></li>
+                    <li class="header-link"><a href="experiences.html">Experience</a></li>
+                    <li class="header-link"><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main >
+            <section class="page-title-section">
+                <h1>Project Management</h1>
+                <p>Manage your portfolio projects — create, edit, and delete entries used across the site.</p>
+            </section>
+
+            <div class="crud-container">
+                <aside class="project-list">
+                    <h3>Current Projects</h3>
+                    <ul id="items-list">
+                        </ul>
+                    <button id="btn-new">Create New Project</button>
+                </aside>
+
+                <section class="editor-panel">
+                    <h2 id="form-title">Add New Project</h2>
+                    <form id="crud-form">
+                        <input type="hidden" id="project-id">
+
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" required>
+
+                        <label for="img-src">Image URL:</label>
+                        <input type="url" id="img-src" name="img-src" required>
+                        
+                        <label for="img-alt">Description (Alt Text):</label>
+                        <input type="text" id="img-alt" name="img-alt" required>
+
+                        <label for="link">Link:</label>
+                        <input type="url" id="link" name="link" required>
+
+                        <label for="bg-color">Background Color:</label>
+                        <input type="color" id="bg-color" name="bg-color" value="#ffffff">
+
+                        <div class="form-actions">
+                            <button type="submit" id="btn-save">Save Project</button>
+                            <button type="button" id="btn-delete" hidden>Delete</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-content">
+                <p class="footer-name">Nikhil Akiti</p>
+                
+                <p class="footer-copyright">&copy; 2025 Nikhil Akiti. All rights reserved.</p>
+                
+                <ul class="footer-socials">
+                    <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+                    <li><a href="#" aria-label="GitHub">GitHub</a></li>
+                    <li><a href="mailto:email" aria-label="Email">Email</a></li>
+                </ul>
+            </div>
+
+            
+            <noscript>
+                <p>Please enable JavaScript for the best experience on this site.</p>
+            </noscript>
+        </footer>
+        <script src="crud.js"></script>
+    </body>
+</html>

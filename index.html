@@ -48,57 +48,38 @@
             <section id="featured-projects">
                 <h2>Featured Projects</h2>
                 <div class="project-card-container">
-                    <a href="projects.html" class="project-card-link">
-                        <article class="project-card">
-                            <img 
-                                class="project-card-image"
-                                src="assets/medium/fundraising-1.png" 
-                                srcset="assets/small/fundraising-1.png 400w, 
-                                        assets/medium/fundraising-1.png 800w,
-                                        assets/large/fundraising-1.png 1200w"
-                                sizes="(min-width: 768px) 33vw, 100vw"
-                                alt="Screenshot of Fundraising CRM"
-                            >
-                            
-                            <div class="project-card-title-bar" style="background-color: #BFDBFE">
-                                <h3>Non Profit CRM</h3>
-                            </div>
-                        </article>
-                    </a>
-                    <a href="projects.html" class="project-card-link">
-                        <article class="project-card">
-                            <img 
-                                class="project-card-image"
-                                src="assets/medium/claimable-1.png" 
-                                srcset="assets/small/claimable-1.png 400w, 
-                                        assets/medium/claimable-1.png 800w,
-                                        assets/large/claimable-1.png 1200w"
-                                sizes="(min-width: 768px) 33vw, 100vw"
-                                alt="Screenshot of Claimable AI"
-                            >
-                            
-                            <div class="project-card-title-bar" style="background-color: #A7F3D0;">
-                                <h3>Claimable AI</h3>
-                            </div>
-                        </article>
-                    </a>
-                    <a href="projects.html" class="project-card-link">
-                        <article class="project-card">
-                            <img 
-                                class="project-card-image"
-                                src="assets/medium/fulfill-1.png" 
-                                srcset="assets/small/fulfill-1.png 400w, 
-                                        assets/medium/fulfill-1.png 800w,
-                                        assets/large/fulfill-1.png 1200w"
-                                sizes="(min-width: 768px) 33vw, 100vw"
-                                alt="Screenshot of Fulfill AI"
-                            >
-                            
-                            <div class="project-card-title-bar" style="background-color: #FDE68A">
-                                <h3>Fulfill AI</h3>
-                            </div>
-                        </article>
-                    </a>
+                    <project-card
+                        title="Non Profit CRM"
+                        img-src="assets/medium/fundraising-1.png"
+                        img-srcset="assets/small/fundraising-1.png 400w, assets/medium/fundraising-1.png 800w, assets/large/fundraising-1.png 1200w"
+                        sizes="(min-width: 768px) 33vw, 100vw"
+                        img-alt="Screenshot of Fundraising CRM"
+                        bg-color="#BFDBFE"
+                        github="#"
+                        description="The Non Profit CRM streamlines donor management and fundraising campaigns for charitable organizations. It tracks donor interactions, manages gift history, and automates engagement workflows to maximize fundraising efficiency."
+                    ></project-card>
+
+                    <project-card
+                        title="Claimable AI"
+                        img-src="assets/medium/claimable-1.png"
+                        img-srcset="assets/small/claimable-1.png 400w, assets/medium/claimable-1.png 800w, assets/large/claimable-1.png 1200w"
+                        sizes="(min-width: 768px) 33vw, 100vw"
+                        img-alt="Screenshot of Claimable AI"
+                        bg-color="#A7F3D0"
+                        github="#"
+                        description="Claimable AI uses artificial intelligence to help users identify and claim financial benefits. With advanced NLP, it matches users with applicable programs and guides them through the claim process."
+                    ></project-card>
+
+                    <project-card
+                        title="Fulfill AI"
+                        img-src="assets/medium/fulfill-1.png"
+                        img-srcset="assets/small/fulfill-1.png 400w, assets/medium/fulfill-1.png 800w, assets/large/fulfill-1.png 1200w"
+                        sizes="(min-width: 768px) 33vw, 100vw"
+                        img-alt="Screenshot of Fulfill AI"
+                        bg-color="#FDE68A"
+                        github="#"
+                        description="Fulfill AI optimizes order fulfillment using artificial intelligence. It manages inventory, predicts demand, and automates workflows to reduce errors and accelerate delivery times."
+                    ></project-card>
                 </div>
             </section>
         </main>
@@ -120,5 +101,6 @@
                 <p>Please enable JavaScript for the best experience on this site.</p>
             </noscript>
         </footer>
+        <script src="projectCard.js"></script>
     </body>
 </html>
