@@ -67,7 +67,6 @@ class ProjectCard extends HTMLElement {
     openModal() {
         const { title, imgSrc, description, bgColor, github } = this.cardData;
         
-        // Create array of placeholder images (initial image + 2 placeholders)
         const images = [
             imgSrc,
             'https://via.placeholder.com/800x600?text=Image+2',
@@ -76,11 +75,9 @@ class ProjectCard extends HTMLElement {
         
         let currentImageIndex = 0;
 
-        // Create modal backdrop
         const backdrop = document.createElement('div');
         backdrop.className = 'project-card-modal-backdrop';
         
-        // Create modal content
         const modal = document.createElement('div');
         modal.className = 'project-card-modal';
         modal.innerHTML = `
@@ -97,9 +94,7 @@ class ProjectCard extends HTMLElement {
                         <button class="slideshow-nav slideshow-prev" aria-label="Previous image">&lt;</button>
                         <button class="slideshow-nav slideshow-next" aria-label="Next image">&gt;</button>
                     </div>
-                    <div class="slideshow-dots">
-                        ${images.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`).join('')}
-                    </div>
+
                 </div>
                 
                 <div class="project-card-modal-description">
@@ -120,7 +115,6 @@ class ProjectCard extends HTMLElement {
         backdrop.appendChild(modal);
         document.body.appendChild(backdrop);
         
-        // Slideshow functionality
         const slideshowImage = modal.querySelector('.slideshow-image');
         const prevBtn = modal.querySelector('.slideshow-prev');
         const nextBtn = modal.querySelector('.slideshow-next');
@@ -148,20 +142,17 @@ class ProjectCard extends HTMLElement {
             });
         });
         
-        // Close modal on backdrop click
         backdrop.addEventListener('click', (e) => {
             if (e.target === backdrop) {
                 backdrop.remove();
             }
         });
         
-        // Close modal on close button click
         const closeBtn = modal.querySelector('.project-card-modal-close');
         closeBtn.addEventListener('click', () => {
             backdrop.remove();
         });
         
-        // Close modal on Escape key
         const escapeHandler = (e) => {
             if (e.key === 'Escape') {
                 backdrop.remove();

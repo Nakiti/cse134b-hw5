@@ -458,18 +458,26 @@ section {
 /* Description area */
 .project-card-modal-description {
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.08);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  /* Make description area much more visible: higher contrast, larger text, and subtle elevation */
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,250,0.95));
+  color: #111;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 -6px 18px rgba(0,0,0,0.06);
+  /* Keep corners square at the bottom to match modal chrome */
+
   flex-shrink: 0;
-  max-height: 200px;
+  max-height: 340px;
   overflow-y: auto;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
 .project-card-modal-description p {
   margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #222;
+  color: #111;
+  font-size: 1.15rem;
+  line-height: 1.7;
 }
 
 .project-card-modal-close {
@@ -764,6 +772,26 @@ section {
 .faq-item[open] > .faq-question::after {
   content: '−'; 
   transform: translateY(-50%) rotate(180deg);
+}
+
+/* Blue accent highlights */
+.accent-highlight {
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.faq-question {
+  border-left: 3px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.faq-item[open] > .faq-question {
+  border-left-color: var(--primary-color);
+}
+
+.faq-question:hover {
+  color: var(--primary-color);
 }
 
 
