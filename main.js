@@ -73,7 +73,34 @@ function loadLocal() {
 
 async function loadRemote() {
     try {
-        cardContainer.innerHTML = '<p style="text-align:center; color:white;">Loading remote data...</p>';
+        cardContainer.innerHTML = `
+            <div style="display: flex; justify-content: center; align-items: center; min-height: 300px; width: 100%;">
+                <div style="text-align: center;">
+                    <div style="
+                        border: 4px solid var(--border-color);
+                        border-top: 4px solid var(--primary-color);
+                        border-radius: 50%;
+                        width: 50px;
+                        height: 50px;
+                        animation: spin 1s linear infinite;
+                        margin: 0 auto 1rem;
+                    "></div>
+                    <p style="color: var(--text-primary); font-size: 1.2rem;">Loading projects...</p>
+                </div>
+            </div>
+        `;
+
+        // Add animation if not already in styles
+        if (!document.querySelector('style[data-spinner]')) {
+            const style = document.createElement('style');
+            style.setAttribute('data-spinner', 'true');
+            style.textContent = `
+                @keyframes spin {
+                    to { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
 
         const response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
             headers: {

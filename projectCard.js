@@ -1,5 +1,3 @@
-// projectCard.js
-
 class ProjectCard extends HTMLElement {
     constructor() {
         super();
@@ -40,7 +38,6 @@ class ProjectCard extends HTMLElement {
             </article>
         `;
 
-        // Store data for modal
         this.cardData = {
             title,
             imgSrc,
@@ -49,13 +46,11 @@ class ProjectCard extends HTMLElement {
             github
         };
 
-        // Add click handler to the card (but not the GitHub link)
         const article = this.querySelector('.project-card');
         const githubLink = this.querySelector('.project-card-github');
         
         if (article) {
             article.addEventListener('click', (e) => {
-                // Don't open modal if clicking the GitHub link
                 if (e.target === githubLink || githubLink.contains(e.target)) {
                     return;
                 }
