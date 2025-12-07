@@ -7,7 +7,16 @@ const localData = [
         "imgAlt": "A screenshot of the Claimable AI project interface",
         "href": "projects.html",
         "bgColor": "#DDD6FE",
-        "description": "Claimable AI is an innovative platform that leverages artificial intelligence to help users identify and claim financial benefits they may be eligible for. The system uses advanced natural language processing to understand user situations and matches them with applicable programs."
+        "description": "Claimable AI is an innovative platform that leverages artificial intelligence to help users identify and claim financial benefits they may be eligible for. The system uses advanced natural language processing to understand user situations and matches them with applicable programs.",
+        "slideshowImages": [
+            {"src": "assets/medium/claimable-1.png", "srcset": "assets/small/claimable-1.png 400w, assets/medium/claimable-1.png 800w, assets/large/claimable-1.png 1200w"},
+            {"src": "assets/medium/claimable-2.png", "srcset": "assets/small/claimable-2.png 400w, assets/medium/claimable-2.png 800w, assets/large/claimable-2.png 1200w"},
+            {"src": "assets/medium/claimable-3.png", "srcset": "assets/small/claimable-3.png 400w, assets/medium/claimable-3.png 800w, assets/large/claimable-3.png 1200w"},
+            {"src": "assets/medium/claimable-4.png", "srcset": "assets/small/claimable-4.png 400w, assets/medium/claimable-4.png 800w, assets/large/claimable-4.png 1200w"},
+            {"src": "assets/medium/claimable-5.png", "srcset": "assets/small/claimable-5.png 400w, assets/medium/claimable-5.png 800w, assets/large/claimable-5.png 1200w"},
+            {"src": "assets/medium/claimable-6.png", "srcset": "assets/small/claimable-6.png 400w, assets/medium/claimable-6.png 800w, assets/large/claimable-6.png 1200w"},
+            {"src": "assets/medium/claimable-7.png", "srcset": "assets/small/claimable-7.png 400w, assets/medium/claimable-7.png 800w, assets/large/claimable-7.png 1200w"}
+        ]
     },
     {
         "title": "Fulfill AI",
@@ -17,7 +26,12 @@ const localData = [
         "imgAlt": "Screenshot of Fulfill AI Project",
         "href": "projects.html",
         "bgColor": "#FED7AA",
-        "description": "Fulfill AI is a comprehensive tool designed to streamline order fulfillment processes using artificial intelligence. It optimizes inventory management, predicts demand patterns, and automates the fulfillment workflow to reduce errors and improve delivery times."
+        "description": "Fulfill AI is a comprehensive tool designed to streamline order fulfillment processes using artificial intelligence. It optimizes inventory management, predicts demand patterns, and automates the fulfillment workflow to reduce errors and improve delivery times.",
+        "slideshowImages": [
+            {"src": "assets/medium/fulfill-1.png", "srcset": "assets/small/fulfill-1.png 400w, assets/medium/fulfill-1.png 800w, assets/large/fulfill-1.png 1200w"},
+            {"src": "assets/medium/fulfill-2.png", "srcset": "assets/small/fulfill-2.png 400w, assets/medium/fulfill-2.png 800w, assets/large/fulfill-2.png 1200w"},
+            {"src": "assets/medium/fulfill-3.png", "srcset": "assets/small/fulfill-3.png 400w, assets/medium/fulfill-3.png 800w, assets/large/fulfill-3.png 1200w"}
+        ]
     },
     {
         "title": "Ecommerce Web Scraper",
@@ -27,7 +41,58 @@ const localData = [
         "imgAlt": "Screenshot of Ecommerce Scraper Project",
         "href": "projects.html",
         "bgColor": "#FBCFE8",
-        "description": "The Ecommerce Web Scraper is a powerful tool built to extract product data from multiple online retailers. It collects pricing information, product details, and availability data in real-time, enabling competitive analysis and market research."
+        "description": "The Ecommerce Web Scraper is a powerful tool built to extract product data from multiple online retailers. It collects pricing information, product details, and availability data in real-time, enabling competitive analysis and market research.",
+        "slideshowImages": [
+            {"src": "assets/medium/ecommerce-1.png", "srcset": "assets/small/ecommerce-1.png 400w, assets/medium/ecommerce-1.png 800w, assets/large/ecommerce-1.png 1200w"}
+        ]
+    },
+    {
+        "title": "Non Profit CRM",
+        "imgSrc": "assets/medium/fundraising-1.png",
+        "imgSrcset": "assets/small/fundraising-1.png 400w, assets/medium/fundraising-1.png 800w, assets/large/fundraising-1.png 1200w",
+        "sizes": "(min-width: 768px) 33vw, 100vw",
+        "imgAlt": "Screenshot of Fundraising CRM",
+        "href": "projects.html",
+        "bgColor": "#BFDBFE",
+        "description": "The Non Profit CRM streamlines donor management and fundraising campaigns for charitable organizations. It tracks donor interactions, manages gift history, and automates engagement workflows to maximize fundraising efficiency.",
+        "slideshowImages": [
+            {"src": "assets/medium/fundraising-1.png", "srcset": "assets/small/fundraising-1.png 400w, assets/medium/fundraising-1.png 800w, assets/large/fundraising-1.png 1200w"},
+            {"src": "assets/medium/fundraising-2.png", "srcset": "assets/small/fundraising-2.png 400w, assets/medium/fundraising-2.png 800w, assets/large/fundraising-2.png 1200w"},
+            {"src": "assets/medium/fundraising-3.png", "srcset": "assets/small/fundraising-3.png 400w, assets/medium/fundraising-3.png 800w, assets/large/fundraising-3.png 1200w"},
+            {"src": "assets/medium/fundraising-4.png", "srcset": "assets/small/fundraising-4.png 400w, assets/medium/fundraising-4.png 800w, assets/large/fundraising-4.png 1200w"},
+            {"src": "assets/medium/fundraising-5.png", "srcset": "assets/small/fundraising-5.png 400w, assets/medium/fundraising-5.png 800w, assets/large/fundraising-5.png 1200w"},
+            {"src": "assets/medium/fundraising-6.png", "srcset": "assets/small/fundraising-6.png 400w, assets/medium/fundraising-6.png 800w, assets/large/fundraising-6.png 1200w"}
+        ]
+    },
+    {
+        "title": "Mash",
+        "imgSrc": "assets/medium/mash-1.png",
+        "imgSrcset": "assets/small/mash-1.png 400w, assets/medium/mash-1.png 800w, assets/large/mash-1.png 1200w",
+        "sizes": "(min-width: 768px) 33vw, 100vw",
+        "imgAlt": "Screenshot of Mash Project",
+        "href": "projects.html",
+        "bgColor": "#C7D2FE",
+        "description": "Mash is a collaborative music creation platform that enables musicians to work together in real-time. It provides tools for audio mixing, beat creation, and seamless collaboration across different locations.",
+        "slideshowImages": [
+            {"src": "assets/medium/mash-1.png", "srcset": "assets/small/mash-1.png 400w, assets/medium/mash-1.png 800w, assets/large/mash-1.png 1200w"},
+            {"src": "assets/medium/mash-2.png", "srcset": "assets/small/mash-2.png 400w, assets/medium/mash-2.png 800w, assets/large/mash-2.png 1200w"},
+            {"src": "assets/medium/mash-3.png", "srcset": "assets/small/mash-3.png 400w, assets/medium/mash-3.png 800w, assets/large/mash-3.png 1200w"},
+            {"src": "assets/medium/mash-4.png", "srcset": "assets/small/mash-4.png 400w, assets/medium/mash-4.png 800w, assets/large/mash-4.png 1200w"}
+        ]
+    },
+    {
+        "title": "ForScale",
+        "imgSrc": "assets/medium/forscale-1.jpg",
+        "imgSrcset": "assets/small/forscale-1.jpg 400w, assets/medium/forscale-1.jpg 800w, assets/large/forscale-1.jpg 1200w",
+        "sizes": "(min-width: 768px) 33vw, 100vw",
+        "imgAlt": "Screenshot of ForScale Project",
+        "href": "projects.html",
+        "bgColor": "#FEF3C7",
+        "description": "ForScale is a scalability testing and monitoring tool designed for modern cloud infrastructure. It helps developers identify performance bottlenecks and optimize their applications for high-traffic scenarios.",
+        "slideshowImages": [
+            {"src": "assets/medium/forscale-1.jpg", "srcset": "assets/small/forscale-1.jpg 400w, assets/medium/forscale-1.jpg 800w, assets/large/forscale-1.jpg 1200w"},
+            {"src": "assets/medium/forscale-2.jpg", "srcset": "assets/small/forscale-2.jpg 400w, assets/medium/forscale-2.jpg 800w, assets/large/forscale-2.jpg 1200w"}
+        ]
     }
 ];
 
@@ -54,6 +119,10 @@ function renderCards(projects) {
         card.setAttribute('bg-color', project.bgColor);
         // Set the description attribute
         card.setAttribute('description', project.description || '');
+        // Set the slideshow images if available
+        if (project.slideshowImages && project.slideshowImages.length > 0) {
+            card.setAttribute('slideshow-images', JSON.stringify(project.slideshowImages));
+        }
 
         cardContainer.appendChild(card);
     });
@@ -126,9 +195,8 @@ async function loadRemote() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (!localStorage.getItem('myLocalProjects')) {
-        localStorage.setItem('myLocalProjects', JSON.stringify(localData));
-    }
+    // Always update localStorage with the latest localData
+    localStorage.setItem('myLocalProjects', JSON.stringify(localData));
 
     loadLocalBtn.addEventListener('click', loadLocal);
     loadRemoteBtn.addEventListener('click', loadRemote);

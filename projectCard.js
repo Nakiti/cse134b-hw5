@@ -12,6 +12,18 @@ class ProjectCard extends HTMLElement {
         const github = this.getAttribute('github') || '#';
         const description = this.getAttribute('description') || '';
         const bgColor = this.getAttribute('bg-color') || '#ffffff';
+        
+        // Parse slideshow images - expects JSON array of image base names (without -N suffix)
+        // e.g., ["claimable", "claimable", ...] or full paths
+        let slideshowImages = [];
+        const slideshowAttr = this.getAttribute('slideshow-images');
+        if (slideshowAttr) {
+            try {
+                slideshowImages = JSON.parse(slideshowAttr);
+            } catch (e) {
+                console.error('Failed to parse slideshow-images:', e);
+            }
+        }
 
         const githubIcon = `
             <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -23,13 +35,23 @@ class ProjectCard extends HTMLElement {
 
         this.innerHTML = `
             <article class="project-card">
-                <img 
-                    class="project-card-image"
-                    src="${imgSrc}"
-                    srcset="${imgSrcset}"
-                    sizes="${sizes}"
-                    alt="${imgAlt}"
-                >
+                <picture class="project-card-image">
+                    <source
+                        media="(min-width: 1024px)"
+                        srcset="${imgSrcset.split(', ').find(s => s.includes('large')) || imgSrc}"
+                    >
+                    <source
+                        media="(min-width: 768px)"
+                        srcset="${imgSrcset.split(', ').find(s => s.includes('medium')) || imgSrc}"
+                    >
+                    <img 
+                        src="${imgSrc}"
+                        srcset="${imgSrcset}"
+                        sizes="${sizes}"
+                        alt="${imgAlt}"
+                        loading="lazy"
+                    >
+                </picture>
                 
                 <div class="project-card-title-bar" style="background-color: ${bgColor}">
                     <h3>${title}</h3>
@@ -41,9 +63,11 @@ class ProjectCard extends HTMLElement {
         this.cardData = {
             title,
             imgSrc,
+            imgSrcset,
             description,
             bgColor,
-            github
+            github,
+            slideshowImages
         };
 
         const article = this.querySelector('.project-card');
@@ -60,18 +84,37 @@ class ProjectCard extends HTMLElement {
     }
 
     openModal() {
-        const { title, imgSrc, description, bgColor, github } = this.cardData;
+        const { title, imgSrc, imgSrcset, description, bgColor, github, slideshowImages } = this.cardData;
         
-        const images = [
-            imgSrc,
-            'https://via.placeholder.com/800x600?text=Image+2',
-            'https://via.placeholder.com/800x600?text=Image+3'
-        ];
+        // Build images array - use slideshow images if provided, otherwise just the main image
+        let images = [];
+        if (slideshowImages && slideshowImages.length > 0) {
+            images = slideshowImages;
+        } else {
+            // Fallback: just use the main image
+            images = [{
+                src: imgSrc,
+                srcset: imgSrcset
+            }];
+        }
         
         let currentImageIndex = 0;
 
         const backdrop = document.createElement('div');
         backdrop.className = 'project-card-modal-backdrop';
+        
+        // Generate dots HTML
+        const dotsHTML = images.length > 1 
+            ? `<div class="slideshow-dots">
+                ${images.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`).join('')}
+               </div>`
+            : '';
+        
+        // Generate navigation buttons only if more than one image
+        const navButtonsHTML = images.length > 1
+            ? `<button class="slideshow-nav slideshow-prev" aria-label="Previous image">&lt;</button>
+               <button class="slideshow-nav slideshow-next" aria-label="Next image">&gt;</button>`
+            : '';
         
         const modal = document.createElement('div');
         modal.className = 'project-card-modal';
@@ -81,15 +124,29 @@ class ProjectCard extends HTMLElement {
                 
                 <div class="project-card-modal-slideshow">
                     <div class="slideshow-container">
-                        <img 
-                            class="slideshow-image"
-                            src="${images[currentImageIndex]}"
-                            alt="${title}"
-                        >
-                        <button class="slideshow-nav slideshow-prev" aria-label="Previous image">&lt;</button>
-                        <button class="slideshow-nav slideshow-next" aria-label="Next image">&gt;</button>
+                        <picture class="slideshow-picture">
+                            <source
+                                class="slideshow-source-large"
+                                media="(min-width: 1024px)"
+                                srcset="${this.getLargeSrc(images[0])}"
+                            >
+                            <source
+                                class="slideshow-source-medium"
+                                media="(min-width: 768px)"
+                                srcset="${this.getMediumSrc(images[0])}"
+                            >
+                            <img 
+                                class="slideshow-image"
+                                src="${this.getMediumSrc(images[0])}"
+                                srcset="${images[0].srcset || ''}"
+                                sizes="(min-width: 1024px) 800px, (min-width: 768px) 600px, 100vw"
+                                alt="${title}"
+                                loading="lazy"
+                            >
+                        </picture>
+                        ${navButtonsHTML}
                     </div>
-
+                    ${dotsHTML}
                 </div>
                 
                 <div class="project-card-modal-description">
@@ -111,25 +168,42 @@ class ProjectCard extends HTMLElement {
         document.body.appendChild(backdrop);
         
         const slideshowImage = modal.querySelector('.slideshow-image');
+        const slideshowSourceLarge = modal.querySelector('.slideshow-source-large');
+        const slideshowSourceMedium = modal.querySelector('.slideshow-source-medium');
         const prevBtn = modal.querySelector('.slideshow-prev');
         const nextBtn = modal.querySelector('.slideshow-next');
         const dots = modal.querySelectorAll('.dot');
         
         const updateImage = (index) => {
             currentImageIndex = (index + images.length) % images.length;
-            slideshowImage.src = images[currentImageIndex];
+            const currentImg = images[currentImageIndex];
+            
+            // Update the picture sources for responsive loading
+            if (slideshowSourceLarge) {
+                slideshowSourceLarge.srcset = this.getLargeSrc(currentImg);
+            }
+            if (slideshowSourceMedium) {
+                slideshowSourceMedium.srcset = this.getMediumSrc(currentImg);
+            }
+            slideshowImage.src = this.getMediumSrc(currentImg);
+            slideshowImage.srcset = currentImg.srcset || '';
+            
             dots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === currentImageIndex);
             });
         };
         
-        prevBtn.addEventListener('click', () => {
-            updateImage(currentImageIndex - 1);
-        });
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                updateImage(currentImageIndex - 1);
+            });
+        }
         
-        nextBtn.addEventListener('click', () => {
-            updateImage(currentImageIndex + 1);
-        });
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                updateImage(currentImageIndex + 1);
+            });
+        }
         
         dots.forEach(dot => {
             dot.addEventListener('click', () => {
@@ -155,6 +229,36 @@ class ProjectCard extends HTMLElement {
             }
         };
         document.addEventListener('keydown', escapeHandler);
+    }
+    
+    // Helper to extract large src from srcset or image object
+    getLargeSrc(img) {
+        if (typeof img === 'string') return img;
+        if (img.srcset) {
+            const largeSrc = img.srcset.split(', ').find(s => s.includes('large'));
+            if (largeSrc) return largeSrc.split(' ')[0];
+        }
+        return img.src || '';
+    }
+    
+    // Helper to extract medium src from srcset or image object  
+    getMediumSrc(img) {
+        if (typeof img === 'string') return img;
+        if (img.srcset) {
+            const mediumSrc = img.srcset.split(', ').find(s => s.includes('medium'));
+            if (mediumSrc) return mediumSrc.split(' ')[0];
+        }
+        return img.src || '';
+    }
+    
+    // Helper to extract small src from srcset or image object
+    getSmallSrc(img) {
+        if (typeof img === 'string') return img;
+        if (img.srcset) {
+            const smallSrc = img.srcset.split(', ').find(s => s.includes('small'));
+            if (smallSrc) return smallSrc.split(' ')[0];
+        }
+        return img.src || '';
     }
 }
 

@@ -367,13 +367,27 @@ section {
 
 .project-card-image {
   width: 100%;
-  aspect-ratio: 16 / 9; 
+  aspect-ratio: 16 / 9;
+  display: block;
+  overflow: hidden;
 }
 
 .project-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover; 
+  display: block;
+}
+
+/* Support for picture element in card */
+picture.project-card-image {
+  display: block;
+}
+
+picture.project-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -463,6 +477,14 @@ section {
   flex: 1;
   overflow: hidden;
   background: var(--bg-color);
+}
+
+.slideshow-picture {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slideshow-image {
