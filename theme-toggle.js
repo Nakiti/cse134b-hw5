@@ -25,6 +25,28 @@
         }
 
         themeToggle.setAttribute('aria-pressed', document.documentElement.getAttribute('data-theme') === 'dark');
+
+        // Handle hamburger menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menuLinks = document.querySelector('.header-link-container');
+
+        if (menuToggle && menuLinks) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                menuLinks.classList.toggle('active');
+                menuToggle.setAttribute('aria-expanded', menuToggle.classList.contains('active'));
+            });
+
+            // Close menu when a link is clicked
+            const links = menuLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    menuLinks.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
     });
 
     function toggleTheme() {
