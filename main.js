@@ -143,7 +143,7 @@ function loadLocal() {
 async function loadRemote() {
     try {
         cardContainer.innerHTML = `
-            <div style="display: flex; justify-content: center; align-items: center; min-height: 300px; width: 100%;">
+            <div style="display: flex; justify-content: center; align-items: center; min-height: 300px; width: 100%; grid-column: 1 / -1;">
                 <div style="text-align: center;">
                     <div style="
                         border: 4px solid var(--border-color);
@@ -154,7 +154,7 @@ async function loadRemote() {
                         animation: spin 1s linear infinite;
                         margin: 0 auto 1rem;
                     "></div>
-                    <p style="color: var(--text-primary); font-size: 1.2rem;">Loading projects...</p>
+                    <p style="color: var(--text-primary); font-size: 1.4rem;">Loading projects...</p>
                 </div>
             </div>
         `;
