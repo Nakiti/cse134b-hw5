@@ -100,7 +100,7 @@ const cardContainer = document.querySelector('.project-card-container');
 const loadLocalBtn = document.getElementById('load-local');
 const loadRemoteBtn = document.getElementById('load-remote');
 
-const BIN_ID = '692fe72943b1c97be9d46e7a'; 
+const BIN_ID = '69362d2fd0ea881f4019bb3e'; 
 const API_KEY = '$2a$10$eerLTsJLDYhO6IlxwvwnUOQD6veIe/Jzbu9zyYGiSwKiU.Q6Cuyvi '; 
 
 function renderCards(projects) {
